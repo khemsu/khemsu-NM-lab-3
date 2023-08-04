@@ -6,9 +6,8 @@
 
 int main()
 {
- float h,I,lower, upper, integration=0.0, stepSize=2, k;
- int i;
- 
+ float h,i,j,I,lower, upper, integration=0.0 ;
+
  /* Input */
  printf("Enter lower limit of integration: ");
  scanf("%f", &lower);
@@ -16,16 +15,18 @@ int main()
  scanf("%f", &upper);
     
  /* Finding Integration Value */
-    integration=f(lower) + f(upper);
+    integration= f(lower) + f(upper);
     h= (upper-lower)/2;
- for(i=2; i<=stepSize; i++)
+//    printf("f(x0) and f(x2) =%.3f  ,  %.3f", f(lower), f(upper));
  {
-     k = lower + i*stepSize;
-     integration = integration + (4 * f(k));
+     i=4*f(lower+h);
+     j=i+integration;
  }
- I= (h/3)*integration;
+ I= (h*j)/3;
  printf("\nRequired value of integration is: %.3f", I);
 
  return 0;
 }
+
+
 
